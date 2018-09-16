@@ -2,21 +2,13 @@
 #![plugin(rocket_codegen)]
 
 extern crate rocket;
-#[macro_use] extern crate rocket_contrib;
+extern crate rocket_contrib;
 #[macro_use] extern crate serde_derive;
-extern crate serde;
-extern crate serde_json;
 extern crate chrono;
 
 use rocket::State;
-use rocket_contrib::{Json, JsonValue};
-use std::sync::atomic::{AtomicUsize, Ordering};
-use std::sync::{Arc, RwLock, Mutex};
-use std::fs;
-use std::fs::OpenOptions;
-use std::io::prelude::*;
-use std::time::{Duration, Instant};
-use chrono::prelude::*;
+use rocket_contrib::{Json};
+use std::sync::{Arc, Mutex};
 
 mod rate_limit;
 use rate_limit::*;

@@ -1,11 +1,8 @@
-use rocket::State;
-use rocket_contrib::{Json, JsonValue};
-use std::sync::atomic::{AtomicUsize, Ordering};
-use std::sync::{Arc, RwLock, Mutex};
-use std::fs;
-use std::fs::OpenOptions;
-use std::io::prelude::*;
-use std::time::{Duration, Instant};
+extern crate serde;
+extern crate serde_json;
+
+use rocket_contrib::{Json};
+use std::sync::{Arc, Mutex};
 use chrono::prelude::*;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -76,5 +73,3 @@ impl RateLimitContainer {
 		filtered_limits
 	}
 }
-
-
